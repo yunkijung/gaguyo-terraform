@@ -259,7 +259,8 @@ resource "aws_instance" "gaguyo_db_ec2_tf" {
   subnet_id     = aws_subnet.gaguyo_private_subnet_tf.id
   vpc_security_group_ids = [aws_security_group.gaguyo_db_sg_tf.id]
   key_name      = "gaguyo"  # AWS에 생성해둔 키페어 이름
-
+  private_ip    = "10.0.1.204" # DB private IP 고정
+  
   root_block_device {
     volume_size = 32         # 디스크 크기 (GiB)
     volume_type = "gp2"      # gp2, gp3, io1, sc1 등 가능
